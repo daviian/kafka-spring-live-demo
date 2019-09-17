@@ -38,4 +38,9 @@ public class TopicConfiguration {
         return new NewTopic(Topic.FREEZER_TEMPERATURE_JOIN, 1, (short) 1);
     }
 
+    @Bean
+    public NewTopic avgFreezerTemperatureTopic() {
+        return new NewTopic(Topic.FREEZER_AVG_TEMPERATURE, 1, (short) 1);
+    }
+
 }
