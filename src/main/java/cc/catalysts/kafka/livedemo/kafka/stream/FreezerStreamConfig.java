@@ -1,7 +1,6 @@
 package cc.catalysts.kafka.livedemo.kafka.stream;
 
 import cc.catalysts.kafka.livedemo.model.Freezer;
-import org.apache.kafka.common.serialization.Serdes;
 import org.apache.kafka.streams.StreamsConfig;
 import org.apache.kafka.streams.kstream.GlobalKTable;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -12,18 +11,15 @@ import org.springframework.kafka.config.KafkaStreamsConfiguration;
 import org.springframework.kafka.config.StreamsBuilderFactoryBean;
 import org.springframework.kafka.core.CleanupConfig;
 
-import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class FreezerStreamConfig {
+public class FreezerStreamConfig extends AbstractStreamConfig {
 
     @Bean(name = "FreezerStreamsConfig")
     public KafkaStreamsConfiguration freezerStreamsConfigs(KafkaProperties properties) {
-        Map<String, Object> config = new HashMap<>(properties.getStreams().buildProperties());
+        Map<String, Object> config = getDefaults(properties);
         config.put(StreamsConfig.APPLICATION_ID_CONFIG, "freezer-stream");
-        config.put(StreamsConfig.DEFAULT_KEY_SERDE_CLASS_CONFIG, Serdes.String().getClass());
-        config.put(StreamsConfig.DEFAULT_VALUE_SERDE_CLASS_CONFIG, Serdes.String().getClass());
         return new KafkaStreamsConfiguration(config);
     }
 

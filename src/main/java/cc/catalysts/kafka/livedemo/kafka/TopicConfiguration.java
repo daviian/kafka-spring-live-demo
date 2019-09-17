@@ -28,4 +28,14 @@ public class TopicConfiguration {
         return new NewTopic(Topic.FREEZER, 1, (short) 1);
     }
 
+    @Bean
+    public NewTopic freezerTemperatureTopic() {
+        return new NewTopic(Topic.FREEZER_TEMPERATURE, 1, (short) 1);
+    }
+
+    @Bean
+    public NewTopic freezerTemperatureJoinTopic() {
+        return new NewTopic(Topic.FREEZER_TEMPERATURE_JOIN, 1, (short) 1);
+    }
+
 }
