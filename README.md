@@ -43,3 +43,10 @@ Commit [#650c936](https://github.com/daviian/kafka-spring-live-demo/commit/650c9
 Stream Aggregation
 
 Commit [#ad0f45f](https://github.com/daviian/kafka-spring-live-demo/commit/ad0f45f27b5093aceaa6e151b097ea357)
+
+## HowTo use this project
+
+1. Download https://github.com/confluentinc/cp-docker-images/tree/5.1.3-post
+2. Run `docker-compose up -d --build` in `examples/cp-all-in-one`
+3. Install [Kafkatool](http://www.kafkatool.com/) to inspect topics. The features we need are free. You don't have to purchase a license ;-)
+4. Build and run the project
